@@ -1,0 +1,16 @@
+---
+title: Sunset Square
+pagination:
+  data: Art.SunsetList.media
+  size: 1
+  alias: sunset
+permalink: 'sunset/{{ pagination.items[0].id }}/index.html'
+layout: base
+eleventyComputed:
+  title: "{{pagination.items[0].alt}}"
+  photographer: <div> Shot by -
+
+   {{pagination.items[0].photographer}}</div>
+---
+
+<img src="{{ pagination.items[0].src.large2x }}" alt="{{pagination.items[0].alt}}" style="width:100%">

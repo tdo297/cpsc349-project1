@@ -1,16 +1,41 @@
 ---
-layout: base
 title: Home
----
-<header>
-    <h1>{{ title }} </h1>
-</header>
+layout: base
 
-<footer>
-    <hr>
-    <p>
-        <small>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
-        </small>
-    </p>
-</footer>
+
+pagination:
+    data: Art.SunsetList.media
+    size: 9
+
+---
+<body>
+  <main>
+    <section>
+<header>
+
+
+  <h2>Sunset Vibes</h2>
+              <p>Some pictures about Sunset Vibes all around the world which look great</p>
+</header>
+<div style="text-align:center">
+             <ul>
+                 {% for index in pagination.items -%}
+
+                     <a href="/sunset/{{index.id}}/index.html"> <img src= {{ index.src.tiny }} /></a>
+                 {% endfor -%}
+             </ul>
+             {% if pagination.href.previous %}
+             <a href="{{ pagination.href.previous }}"><strong>Previous Page </strong></a>
+             {% else %}
+             {% endif %}
+             {% if pagination.href.next %}
+             <a href="{{ pagination.href.next }}"><strong>Next Page </strong></a>
+             {% else %}
+             {% endif %}
+         </div>
+
+</section>
+
+</main>
+
+</body>
